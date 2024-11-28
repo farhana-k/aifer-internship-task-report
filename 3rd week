@@ -1,0 +1,138 @@
+#  Day 13: Introduction to Django:
+Django: A Python web framework that simplifies web development with built-in tools for tasks like database handling, authentication, and security.
+Architecture:
+•	settings.py: Manages project configurations.
+•	urls.py: Maps URLs to views.
+•	views.py: Contains logic to handle requests.
+•	models.py: Defines the database structure.
+ Setup:
+•	Create a virtual environment.
+•	Install Django.
+•	Create a project and run a development server.
+
+1. Django is a Python web framework that makes it easier and faster to build websites and web applications. It provides tools and features that save you time by taking care of common tasks like handling user authentication, database management, routing URLs, and rendering HTML pages.
+2. install Python and create a virtual environment using python -m venv myenv. Activate the virtual environment, then install Django with pip install django. Next, create a new Django project with django-admin startproject myproject and navigate to the project folder. Finally, run the development server using python manage.py runserver and access the project by visiting http://127.0.0.1:8000/ in browser to verify the setup.
+3. Explore files: settings.py (configurations), urls.py (routing), and views.py (logic).
+Create a "Hello World" view in views.py and map it in urls.py.
+View the result in browser at http://127.0.0.1:8000/hello/.
+
+
+
+
+
+
+
+
+#  Day 14: Django Models and the Admin Interface:
+
+1.	Models in Django: Python  defining database table structure, with each attribute representing a database field.
+2.	Django Database (SQLite3): SQLite3 is the default database  Django automatically handles its setup and management via settings.py.
+3.	Django ORM Basics: migrations apply changes to the database, and data is queried using ORM methods like filter() and create().
+4.	Django Admin Panel for CRUD: The admin interface allows easy CRUD operations on models after registering them in admin.py and creating a superuser
+
+	Django models are Python classes that represent tables in your database. Each model is mapped to a database table, and each attribute of the model corresponds to a field in the table.
+Run Migrations: Apply migrations to set up the database schema.
+Register in Admin Panel: Enable CRUD operations by registering the model in admin.py.
+Create Superuser: Use python manage.py createsuperuser to access the admin panel.
+Test CRUD Operations: Perform Create, Read, Update, and Delete actions via the admin interface.
+Query Data with ORM: Use Django's ORM in the shell to query and manipulate data.
+
+
+
+
+
+
+
+
+
+# Day 15: Django Views and Templates:
+. A function-based view is a simple Python function that takes a request object and returns an HTTP response. It is the most basic way of defining a view in Django.
+Class-based views use Python classes to define views. These views are more structured and reusable, enabling you to handle various HTTP methods (GET, POST) using methods like get() and post().
+. The view sends this context to the template, where the data is accessed and displayed using template variables
+Template syntax:
+•	 Variables are used to display dynamic data from views in templates. 
+•	 Loops are used to iterate over lists or querysets. 
+•	 Conditionals allow you to display content based on specific conditions.
+
+
+User Request: The user makes an HTTP request to a specific URL.
+URL Routing: Django maps the URL to a view function or class-based view.
+View Processing: The view processes the request, queries the database, and prepares data.
+Template Rendering: The view passes data to the template, which dynamically generates HTML.
+Template Inheritance: Reusable layouts are created with base templates for consistent design.
+Filters and Tags: Templates use filters for data formatting and tags for logic or functionality.
+
+
+
+
+
+
+
+
+
+# Day 16: Django URL Routing and Forms 
+
+1.	URL Routing: Django maps incoming requests to views using URL patterns in urls.py.
+2.	Dynamic URLs: URLs can capture parameters (ID) and pass them to views for processing specific content.
+3.	Django Forms (forms.py): Forms are defined in forms.py to collect user input and can be based on models using ModelForm.
+4.	Form Validation: Django automatically validates form data, ensuring it meets required criteria, and displays error messages if invalid.
+
+Content: Dynamic URLs allow views to retrieve and display specific content based on parameters (e.g., blog post ID).
+Forms: Forms in Django are defined in forms.py and allow for easy collection of user input, typically linked to models using ModelForm.
+Form Validation: Django automatically validates form data and ensures it meets the required conditions 
+Error Handling: Django generates error messages, which can be displayed in templates to guide users in fixing their input.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  Day 17: Django Static Files and Media:
+
+Static Files: Stored in a static directory, CSS, JS, and images are linked using the {% static %} tag in Django templates.
+File Uploads: User-uploaded files are handled with FileField or ImageField in models, and stored in a media directory.
+Configuration: STATIC_URL, MEDIA_URL, and MEDIA_ROOT are set in settings.py to define the locations for static and media files.
+Serving Media: URL patterns are configured to serve media files during development.
+
+Step 1: create a static folder_ folder name static_ create a subfolder_ app name myApp _ store css file_ Configure Static Files in settings.py_ add css styles_ Link the CSS File in Template(HTML template)_ Serve the Static Files
+Step 2: Configure Media Settings in settings.py_  set up the MEDIA_URL and MEDIA_ROOT_ C()reate a Model with FileField_(image uploads or general file uploads)_  Migrate the Database(update your database)_ Create a Form for Uploading Files_ Handle File Upload in the View_ Configure URL Patterns to Serve Media Files
+Step 3: Display the Uploaded Image({{ instance.image.url }})_ Ensure Media Files Are Served in Development_ Test the File Display_ Run the server (python manage.py runserver)
+
+
+
+
+
+
+
+
+
+# Day 18:  Django User Authentication
+
+1.	Django's Authentication System: Provides built-in user management (registration, login, logout) using the User model and session handling.
+2.	User Registration, Login, and Logout: Uses forms like UserCreationForm for registration, AuthenticationForm for login, and LogoutView for logging out users.
+3.	Restricting Access with @login_required: Protects views by ensuring that only authenticated users can access them, redirecting unauthenticated users to the login page.
+4.	User Permissions and Groups: Allows assigning permissions  and managing user access through groups to control which actions users can perform.
+
+•	User Registration and Login: -Use UserCreationForm for user registration and AuthenticationForm for login.
+•	Login/Logout Links in Templates:Conditionally display login/logout links using {% if user.is_authenticated %} in templates.
+•	Restricting Access:  Use @login_required decorator to restrict views to authenticated users.
+•	Logout: Use Django's built-in LogoutView for user logout functionality.
+•	Redirect Unauthenticated Users:  Set LOGIN_URL in settings.py to define where unauthenticated users are redirected.
+
+
+
+
+
+
+
+
+
+
+# Day 19: Mini-Project with Django
